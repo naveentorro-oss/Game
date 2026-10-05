@@ -62,7 +62,7 @@ snake_game_html = """
     let dy = 0;
     let score = 0;
     let gameInterval;
-    let gameSpeed = 50; // milliseconds per frame tick
+    let gameSpeed = 150; // milliseconds per frame tick
 
     function main() {
         if (hasGameEnded()) {
