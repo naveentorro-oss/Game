@@ -279,7 +279,24 @@ if st.session_state.room_id:
             is_selected = st.session_state.selected_square == square_idx
             btn_type = "primary" if is_selected else "secondary"
 
+            # Light/Dark square coloring
+            square_color = "#f0d9b5" if (row + col) % 2 == 0 else "#b58863"
+
             with cols[col]:
+                st.markdown(
+                    f"""
+                    <div style="
+                        background:{square_color};
+                        padding: 6px;
+                        border-radius: 10px;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                    ">
+                    """,
+                    unsafe_allow_html=True,
+                )
+
                 st.button(
                     label,
                     key=f"sq_{st.session_state.room_id}_{square_idx}",
@@ -289,6 +306,8 @@ if st.session_state.room_id:
                     args=(square_idx,),
                     disabled=(room["status"] == "finished" or room["turn"] != player_color)
                 )
+
+                st.markdown("</div>", unsafe_allow_html=True)
 
     # Sidebar controls
     st.sidebar.markdown("---")
