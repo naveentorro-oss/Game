@@ -109,6 +109,23 @@ def update_game_state(room_id, board, status="active", winner=None):
 # ---------------------------
 st.set_page_config(page_title="Online Chess", layout="centered")
 st.title("Online Chess Multiplayer ♟️")
+st.markdown("""
+<style>
+div[data-testid="stButton"] > button {
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    color: #111 !important;
+    width: 100% !important;
+    min-height: 58px !important;
+    font-size: 30px !important;
+    border-radius: 10px !important;
+}
+div[data-testid="stButton"] > button:hover {
+    background: rgba(255,255,255,0.08) !important;
+}
+</style>
+""", unsafe_allow_html=True)
 
 # Auto refresh every 2 seconds
 if st_autorefresh is not None:
