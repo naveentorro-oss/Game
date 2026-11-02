@@ -279,7 +279,6 @@ if st.session_state.room_id:
             is_selected = st.session_state.selected_square == square_idx
             btn_type = "primary" if is_selected else "secondary"
 
-            # Light/Dark square coloring
             square_color = "#f0d9b5" if (row + col) % 2 == 0 else "#b58863"
 
             with cols[col]:
